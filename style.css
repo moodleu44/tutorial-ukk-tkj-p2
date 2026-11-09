@@ -7,9 +7,9 @@
   --text-primary: #F9FAFB;
   --text-muted: #9CA3AF;
   --text-dim: #6B7280;
-  --accent: #10B981;
-  --accent-soft: rgba(16, 185, 129, 0.12);
-  --accent-border: rgba(16, 185, 129, 0.3);
+  --accent: #EF4444;
+  --accent-soft: rgba(239, 68, 68, 0.12);
+  --accent-border: rgba(239, 68, 68, 0.3);
   --border: #1F2937;
   --border-light: #374151;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -229,7 +229,7 @@ h2 {
 h3 {
   font-size: 1.15rem;
   font-weight: 600;
-  color: #34D399;
+  color: #F87171;
   margin-top: 2.25rem;
   margin-bottom: 1.25rem;
   padding-top: 0.5rem;
@@ -311,7 +311,7 @@ p {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--accent);
-  background: rgba(16, 185, 129, 0.08);
+  background: rgba(239, 68, 68, 0.08);
   padding: 0.1rem 0.35rem;
   border-radius: 3px;
 }
@@ -327,9 +327,9 @@ p {
 }
 
 .callout-info {
-  background: rgba(16, 185, 129, 0.06);
+  background: rgba(239, 68, 68, 0.06);
   border-color: var(--accent);
-  color: #D1FAE5;
+  color: #FEE2E2;
 }
 
 .callout-info strong {
@@ -456,7 +456,7 @@ code {
   background: rgba(255, 255, 255, 0.07);
   padding: 0.15em 0.35em;
   border-radius: 4px;
-  color: #A7F3D0;
+  color: #FECACA;
 }
 
 /* === Screenshot Frame (Adaptive Aspect Ratio) === */

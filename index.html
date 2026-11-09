@@ -21,14 +21,14 @@
     <div class="sidebar-header">
       <div class="sidebar-brand">
         UKK TKJ Paket 2
-        <span class="sidebar-brand-badge">v2.0</span>
+        <span class="sidebar-brand-badge">ABROR</span>
       </div>
       <div class="sidebar-search-box">
-        <input type="text" id="sidebar-search" class="sidebar-search-input" placeholder="Cari langkah..." aria-label="Cari navigasi">
+        <input type="text" id="sidebar-search" class="sidebar-search-input" placeholder="Cari apa?" aria-label="Cari navigasi">
       </div>
     </div>
     <nav class="sidebar-nav">
-      <a href="#bagian-1" class="nav-group-title">Bagian 1 — MikroTik &amp; Client</a>
+      <a href="#bagian-1" class="nav-group-title">Part 1 — MikroTik &amp; Client</a>
       <ul class="nav-sub-list">
         <li><a href="#sub-1-1" class="nav-sub-link">1.1 IP Address Router</a></li>
         <li><a href="#sub-1-2" class="nav-sub-link">1.2 NAT &amp; Port Forwarding</a></li>
@@ -37,9 +37,9 @@
         <li><a href="#sub-1-5" class="nav-sub-link">1.5 Uji Koneksi Client</a></li>
       </ul>
 
-      <a href="#bagian-2" class="nav-group-title">Bagian 2 — Setup VM VirtualBox</a>
+      <a href="#bagian-2" class="nav-group-title">Part 2 — Setup VM VirtualBox</a>
 
-      <a href="#bagian-3" class="nav-group-title">Bagian 3 — Instalasi OS Debian</a>
+      <a href="#bagian-3" class="nav-group-title">Part 3 — Instalasi OS Debian</a>
       <ul class="nav-sub-list">
         <li><a href="#sub-3-1" class="nav-sub-link">3.1 Bahasa &amp; Keyboard</a></li>
         <li><a href="#sub-3-2" class="nav-sub-link">3.2 Jaringan &amp; Hostname</a></li>
@@ -47,11 +47,11 @@
         <li><a href="#sub-3-4" class="nav-sub-link">3.4 Partisi &amp; GRUB</a></li>
       </ul>
 
-      <a href="#bagian-4" class="nav-group-title">Bagian 4 — Setup Awal &amp; Clone</a>
+      <a href="#bagian-4" class="nav-group-title">Part 4 — Setup Awal &amp; Clone</a>
 
-      <a href="#bagian-5" class="nav-group-title">Bagian 5 — Database Server</a>
+      <a href="#bagian-5" class="nav-group-title">Part 5 — Database Server</a>
 
-      <a href="#bagian-6" class="nav-group-title">Bagian 6 — Web Server &amp; Moodle</a>
+      <a href="#bagian-6" class="nav-group-title">Part 6 — Web Server &amp; Moodle</a>
       <ul class="nav-sub-list">
         <li><a href="#sub-6-1" class="nav-sub-link">6.1 Paket &amp; Source Moodle</a></li>
         <li><a href="#sub-6-2" class="nav-sub-link">6.2 Apache2 &amp; php.ini</a></li>
@@ -60,7 +60,7 @@
         <li><a href="#sub-6-5" class="nav-sub-link">6.5 Port Forwarding 9090</a></li>
       </ul>
 
-      <a href="#bagian-7" class="nav-group-title">Bagian 7 — Backup &amp; Cronjob</a>
+      <a href="#bagian-7" class="nav-group-title">Part 7 — Backup &amp; Cronjob</a>
       <ul class="nav-sub-list">
         <li><a href="#sub-7-1" class="nav-sub-link">7.1 Backup Web Server</a></li>
         <li><a href="#sub-7-2" class="nav-sub-link">7.2 Backup Database Server</a></li>
@@ -70,14 +70,14 @@
 
   <!-- Main Content -->
   <main class="main">
-    <h1>Merancang Arsitektur, Layanan, Perangkat Lunak dan Sarana pada Jaringan Private Cloud</h1>
-    <p class="page-lead">Panduan teknis dan implementasi langkah demi langkah Uji Kompetensi Keahlian (UKK) Teknik Komputer dan Jaringan Paket 2.</p>
+    <h1>TUTORIAL UKK PAKET 2 TKJ</h1>
+    <p class="page-lead">Panduan Uji Kompetensi Keahlian (UKK) Teknik Komputer dan Jaringan Paket 2.</p>
 
     <!-- Technical Reference & Topology Card -->
     <section class="spec-card">
       <div class="spec-card-header">
-        <div class="spec-card-title">Matriks Topologi &amp; Alokasi Pengalamatan Jaringan</div>
-        <span class="spec-card-badge">Spesifikasi Ujian</span>
+        <div class="spec-card-title">Alokasi Pengalamatan Jaringan</div>
+        <span class="spec-card-badge">Spesifikasi UKK</span>
       </div>
       <div class="topology-table-wrap">
         <table class="topology-table">
@@ -94,30 +94,16 @@
             <tr>
               <td><code>ether1</code> (Router)</td>
               <td>Jalur Internet ISP</td>
-              <td><code>10.10.10.xx/24</code></td>
+              <td><code>10.10.10.15/24</code></td>
               <td>GW: <code>10.10.10.254</code> | DNS: <code>8.8.8.8</code></td>
               <td>NAT Masquerade &amp; Dst-NAT <code>9090</code></td>
             </tr>
             <tr>
               <td><code>ether2</code> (Router)</td>
               <td>Jaringan Server VM</td>
-              <td><code>192.168.xx.1/29</code></td>
-              <td>-</td>
-              <td>Segment Server Private Cloud</td>
-            </tr>
-            <tr>
-              <td><code>web-xx</code> (VM Web)</td>
-              <td>LMS Moodle Web Server</td>
-              <td><code>192.168.xx.2/29</code></td>
-              <td>GW: <code>192.168.xx.1</code></td>
-              <td>HTTP Port <code>80</code> (Internal)</td>
-            </tr>
-            <tr>
-              <td><code>db_server</code> (VM DB)</td>
-              <td>MariaDB Server</td>
-              <td><code>192.168.xx.3/29</code></td>
-              <td>GW: <code>192.168.xx.1</code></td>
-              <td>MySQL Port <code>3306</code> (Bind <code>0.0.0.0</code>)</td>
+              <td><code>192.168.15.1/29</code></td>
+              <td>GW: <code>192.168.15.1</code></td>
+              <td>Segment Server Admin</td>
             </tr>
             <tr>
               <td><code>ether3</code> (Router)</td>
@@ -127,24 +113,35 @@
               <td>DHCP Server: <code>192.168.100.2 - 50</code></td>
             </tr>
             <tr>
+              <td><code>deb13web</code> (VM Web)</td>
+              <td>LMS Moodle Web Server</td>
+              <td><code>192.168.15.2/29</code></td>
+              <td>GW: <code>192.168.15.1</code></td>
+              <td>HTTP Port <code>80</code> (Internal)</td>
+            </tr>
+            <tr>
+              <td><code>deb13db</code> (VM DB)</td>
+              <td>MariaDB Server</td>
+              <td><code>192.168.15.3/29</code></td>
+              <td>GW: <code>192.168.15.1</code></td>
+              <td>MySQL Port <code>3306</code> (Bind <code>0.0.0.0</code>)</td>
+            </tr>
+            <tr>
               <td>PC Client</td>
               <td>Komputer Penguji / Siswa</td>
-              <td><code>192.168.100.xx/24</code></td>
+              <td><code>192.168.100.1/24</code></td>
               <td>GW: <code>192.168.100.1</code></td>
               <td>Static / DHCP Client</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div class="callout callout-info">
-        <strong>PENTING:</strong> Ganti variabel <code>xx</code> pada alamat IP dan nama mesin dengan nomor meja / nomor absen ujian Anda (contoh: bila nomor meja <strong>14</strong>, maka IP ether1 adalah <code>10.10.10.14/24</code>).
-      </div>
     </section>
 
     <!-- ============================================================ -->
     <!-- BAGIAN 1 -->
     <!-- ============================================================ -->
-    <h2 id="bagian-1">Bagian 1: Konfigurasi Router MikroTik &amp; Client</h2>
+    <h2 id="bagian-1">Part 1: Konfigurasi Router MikroTik &amp; Client</h2>
 
     <h3 id="sub-1-1">1.1 Login &amp; Konfigurasi IP Address Router</h3>
 
